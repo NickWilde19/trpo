@@ -22,13 +22,15 @@ namespace Obukhovskiy
             float d = discriminant(a, b, c);
             if (d < 0)
             {
-                return null;
+                throw new ArtemException("Ошибка: уравнение не существует.");
             }
 
             if (d == 0)
             {
                 return new List<float> { -b / (2 * a) };
             }
+
+            ArtemLog.I().log("У вас получилось квадратное уравнение");
 
             d = (float)Math.Sqrt(d);
 

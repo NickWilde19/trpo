@@ -10,7 +10,7 @@ namespace Obukhovskiy
         {
             if (a == 0)
             {
-                return null;
+                throw new ArtemException("Ошибка: уравнение не существует.");
             }
 
             return new List<float> { -b / a };
