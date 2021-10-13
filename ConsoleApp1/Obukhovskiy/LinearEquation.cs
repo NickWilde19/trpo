@@ -2,19 +2,18 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleApp1
+namespace Obukhovskiy
 {
-    class A
+    class LinearEquation
     {
-        public float[] linearEquation (float a, float b)
+        public List<float> linearEquation (float a, float b)
         {
             if (a == 0)
             {
                 return null;
             }
 
-            float[] x = new float[1];
-            return x = new float[] { -b / a };
+            return new List<float> { -b / a };
         }
     }
 }

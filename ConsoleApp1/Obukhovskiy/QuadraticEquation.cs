@@ -1,24 +1,25 @@
-﻿using System;
+﻿using ConsoleApp1.Core;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleApp1
+namespace Obukhovskiy
 {
-    class B:A
+    class QuadraticEquation:LinearEquation, EquationInterface
     {
         protected float discriminant(float a, float b, float c)
         {
             return b * b - 4 * a * c;
         }
 
-        protected float[] quadraticEquation(float a, float b)
+        public List<float> Solve(float a, float b, float c)
         {
             if (a == 0)
             {
-                return linearEquation(1, 1);
+                return linearEquation(b, c);
             }
 
-            float d = discriminant(1, 1, 1);
+            float d = discriminant(a, b, c);
             if (d < 0)
             {
                 return null;
@@ -26,15 +27,12 @@ namespace ConsoleApp1
 
             if (d == 0)
             {
-                return new float[] { -b / (2 * a) };
+                return new List<float> { -b / (2 * a) };
             }
 
             d = (float)Math.Sqrt(d);
 
-            float[] array = new float[2];
-            array[1] = (float)(-b - d / (2 * a));
-            array[2] = (float)((-b + d / (2 * a)));
-            return array;
+            return new List<float> { -b - d / (2 * a), -b - d / (2 * a) };
         }
     }
 }
